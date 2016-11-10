@@ -1,0 +1,94 @@
+@mixin module-layout($height) {
+	.col-lg-offset-1-2{
+		margin-left: 12.5%;
+	}
+	.intr-box{
+		height:$height;
+		border:1px solid red;
+		margin-top: 200px;
+		position: relative;
+		.intr-icon{
+			width: 70%;
+			height: $height - 140;
+			border:1px solid red;
+			margin-top: -54px;
+			float: right;
+		}
+	}
+	.intr-info{
+		border: 1px solid red;
+		small{
+			display: block;
+			height: 64px;
+			line-height: 100px;
+			font-size: 14px;
+		}
+		h2{
+			line-height: 54px;
+			font-size: 54px;
+			color: red;
+		}
+		p{
+			font-size: 24px;
+			line-height: 24px;
+		}
+		button{
+			margin-top: 10px;
+		}
+	}
+	.intr-footer{
+		height: 126px;
+		position: absolute;
+		bottom: 0;
+		border-top: 2p solid #ccc;
+		border: 1px solid red;
+	}
+
+
+	.case{
+		margin-top: 200px;
+		.case-swiper{
+			overflow: hidden;
+			.card{
+				height: $height - 102;
+				border: 1px solid red;
+				float: left;
+			}
+		}
+	}
+
+	.banner{
+		margin-top: 200px;
+	}
+	.banner-left,.banner-mid,.banner-right{
+		height: $height - 84;
+		border: 1px solid red;
+	}
+
+	.motto{
+		height: $height - 124;
+		margin-top: 200px;
+		border: 1px solid red;
+		.motto-tag{
+			border: 1px solid red;
+			height: $height - 80;
+			margin-top: -22px;
+		}
+	}
+
+	.footer{
+		border: 1px solid red;
+		margin-top: 100px;
+		.copyright{
+			float: right;
+			border: 1px solid red;
+		}
+	}
+}
+
+@media (min-width: 992px){
+	@include module-layout(430px);
+}
+@media (min-width: 1200px){
+	@include module-layout(630px);
+}
