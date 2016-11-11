@@ -1,22 +1,27 @@
-@mixin module-layout($height) {
-	.col-lg-offset-1-2{
-		margin-left: 12.5%;
-	}
-	.intr-box{
-		height:$height;
-		border:1px solid red;
-		margin-top: 200px;
-		position: relative;
-		.intr-icon{
-			width: 70%;
-			height: $height - 140;
-			border:1px solid red;
-			margin-top: -54px;
-			float: right;
+
+@mixin module-layout{
+	
+	.card{
+		-webkit-transition: all .3s;
+		transition: all .3s;
+		&:hover{
+			box-shadow: 0 1px 6px rgba(0,0,0,.2);
+			border-color: transparent;
 		}
 	}
+	.card-fix{
+		box-shadow:0px 8px 30px rgba(0, 0, 0, 0.2);
+		border-color: transparent;
+	}
+	
+	.intr-box{
+		background-color:#FCFDFF;
+		margin-top: 200px;
+		position: relative;
+		
+	}
 	.intr-info{
-		border: 1px solid red;
+		padding-left:6%;
 		small{
 			display: block;
 			height: 64px;
@@ -29,11 +34,15 @@
 			color: red;
 		}
 		p{
-			font-size: 24px;
-			line-height: 24px;
+			font-size: 16px;
+			line-height: 16px;
+			text-indent: 48px;
 		}
 		button{
-			margin-top: 10px;
+			margin-top: 30px;
+			border-radius:0;
+			letter-spacing: 2px;
+			text-indent: 2px;
 		}
 	}
 	.intr-footer{
@@ -49,9 +58,9 @@
 		margin-top: 200px;
 		.case-swiper{
 			overflow: hidden;
-			.card{
-				height: $height - 102;
-				border: 1px solid red;
+			padding:10px 10px 30px 10px;
+			.case-card{
+				background-color:#fff;
 				float: left;
 			}
 		}
@@ -61,17 +70,16 @@
 		margin-top: 200px;
 	}
 	.banner-left,.banner-mid,.banner-right{
-		height: $height - 84;
-		border: 1px solid red;
+		border: 2px solid #D7253D;
+		background-color:#fff;
 	}
 
 	.motto{
-		height: $height - 124;
 		margin-top: 200px;
-		border: 1px solid red;
+		background-color:#fff;
 		.motto-tag{
-			border: 1px solid red;
-			height: $height - 80;
+			background-color:#fff;
+			border:1px solid #ccc;
 			margin-top: -22px;
 		}
 	}
@@ -85,10 +93,120 @@
 		}
 	}
 }
+@mixin intr-1200{
+	.intr-icon{
+		width: 70%;
+		background-color:#FCFDFF;
+		margin-top: -54px;
+		float: right;
+		padding:10% 0;
+		.img-box{
+			width:80%;
+			height:100%;
+			margin:0 10%;
+			text-align: center;
+			overflow:hidden;
+			img{
+				width: 100%;
+				display: inline-block;
+			}
+		}
+	}
+}
+@mixin intr-992{
+	.intr-icon{
+		width: 70%;
+		height: 400px;
+		background-color:#FCFDFF;
+		margin-top: -54px;
+		float: left;
+		position: relative;
+		left: 6%;
+		padding:10% 0;
+		.img-box{
+			width:80%;
+			height:100%;
+			margin:0 10%;
+			text-align: center;
+			overflow:hidden;
+			img{
+				width: 100%;
+				display: inline-block;
+			}
+		}
+	}
+}
+@mixin module-height($height){
+	.intr-box{
+		height:$height;
+		@if ($height==630px) {
+			.intr-icon{
+				height: $height - 140;
+			}
+		}
+	}
+	.case{
+		
+		.case-swiper{
+			
+			.case-card{
+				height: $height - 102;
+				
+			}
+		}
+	}
+	.banner-left,.banner-mid,.banner-right{
+		height: $height - 84;
+		
+	}
 
+	.motto{
+		height: $height - 124;
+		
+		.motto-tag{
+			
+			height: $height - 80;
+			
+		}
+	}
+}
+body{
+	background-color:#DB3038;
+}
+.header{
+	padding-top:20px;
+	.col-lg-5{
+		height: 40px;
+		line-height: 40px;
+		font-size: 44px;
+		text-indent: 20px;
+		color: #f0ad4e;
+		letter-spacing: 6px;
+	}
+}
+.nav{
+	a{
+		color: #fff;
+		&:hover{
+			color: #DB3038;
+			background-color:#f0ad4e!important;
+		}
+	}
+}
+.navbar-right{
+	right: 4%;
+	position: relative;
+}
 @media (min-width: 992px){
-	@include module-layout(430px);
+	@include module-height(430px);
+	@include module-layout;
+	@include intr-992;
 }
 @media (min-width: 1200px){
-	@include module-layout(630px);
+	.col-lg-offset-1-2{
+		margin-left: 12.5%;
+	}
+	@include module-height(630px);
+	@include module-layout;
+	@include intr-1200;
 }
